@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings | UjjawalVerse</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #fff;
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+    }
+
+    .header h1 {
+      color: #00bfff;
+    }
+
+    .settings-options {
+      padding: 2rem;
+    }
+
+    .settings-option {
+      margin: 1rem 0;
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00bfff;
+    }
+
+    .settings-option h3 {
+      color: #00bfff;
+    }
+
+    .settings-option input[type="checkbox"] {
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>Settings</h1>
+    <p>Adjust your preferences here</p>
+  </header>
+
+  <section class="settings-options">
+    <div class="settings-option">
+      <h3>Dark Mode</h3>
+      <label><input type="checkbox" /> Enable Dark Mode</label>
+    </div>
+    <div class="settings-option">
+      <h3>Enable Notifications</h3>
+      <label><input type="checkbox" /> Receive notifications</label>
+    </div>
+    <div class="settings-option">
+      <h3>Change Password</h3>
+      <input type="password" placeholder="New Password" />
+    </div>
+  </section>
+
+</body>
+</html>

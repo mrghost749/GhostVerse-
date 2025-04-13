@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | ghostVerse</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a2e;
+      color: white;
+      margin: 0;
+    }
+
+    header {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      color: #00bfff;
+    }
+
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .blog-card {
+      background: #222;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px #00bfff;
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.03);
+    }
+
+    .blog-card h3 {
+      color: #00bfff;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card p {
+      color: #ccc;
+    }
+
+    .blog-card a {
+      display: block;
+      margin-top: 1rem;
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ujjawal Blog</h1>
+    <p>Explore thoughts, ideas, and insights</p>
+  </header>
+
+  <section class="blog-container">
+    <div class="blog-card">
+      <h3>How I Built My Own Coding Platform</h3>
+      <p>A detailed story of how I created CodeCraft Hub.</p>
+      <a href="blog-post.html">Read More</a>
+    </div>
+    <div class="blog-card">
+      <h3>Top 5 Anime That Inspire Programmers</h3>
+      <p>Mixing otaku love and tech passion!</p>
+      <a href="blog-post.html">Read More</a>
+    </div>
+    <div class="blog-card">
+      <h3>Freelancing Tips for Students</h3>
+      <p>Grow your skills and your income as a student developer.</p>
+      <a href="blog-post2.html">Read More</a>
+    </div>
+  </section>
+
+</body>
+</html>

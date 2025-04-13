@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitCodeHub 🔐</title>
+  <style>
+    body {
+      background: #0d1117;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #161b22;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      background: #21262d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #238636;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    a {
+      color: #58a6ff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>GitCodeHub 🔐</h1>
+
+    <!-- Login Form -->
+    <div id="loginBox">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button onclick="login()">Login</button>
+      <p>Don't have an account? <a onclick="toggleForm()">Sign up</a></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signupBox" class="hidden">
+      <input type="text" id="newUsername" placeholder="New Username" required />
+      <input type="password" id="newPassword" placeholder="New Password" required />
+      <button onclick="signup()">Sign Up</button>
+      <p>Already have an account? <a onclick="toggleForm()">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const loginBox = document.getElementById("loginBox");
+      const signupBox = document.getElementById("signupBox");
+      loginBox.classList.toggle("hidden");
+      signupBox.classList.toggle("hidden");
+    }
+
+    function signup() {
+      const user = document.getElementById("newUsername").value;
+      const pass = document.getElementById("newPassword").value;
+
+      if (user && pass) {
+        if (localStorage.getItem(user)) {
+          alert("Username already exists!");
+        } else {
+          localStorage.setItem(user, pass);
+          alert("Signup successful! You can now login.");
+          toggleForm();
+        }
+      } else {
+        alert("Please fill all fields.");
+      }
+    }
+
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (localStorage.getItem(user) === pass) {
+        alert("Login successful! Redirecting to dashboard...");
+        // Redirect to dashboard or homepage
+        window.location.href = "dashboard.html"; // You can create this later
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
+
+</body>
+</html>

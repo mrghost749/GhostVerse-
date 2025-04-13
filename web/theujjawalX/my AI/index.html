@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1 style="font-size: 28px;">VEER AI Voice Assistant</h1>
+    <div class="assistant"></div>
+    <button onclick="startListening()">🎤 Start Listening</button>
+    <br>
+    <input type="text" class="input-box" id="textInput" placeholder="Type your command here..." onkeypress="handleKeyPress(event)">
+    <div class="output" id="output">Say something...</div>
+
+    <script>
+        const outputDiv = document.getElementById("output");
+        const textInput = document.getElementById("textInput");
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        let voices = [];
+        
+        function loadVoices() {
+            voices = window.speechSynthesis.getVoices();
+        }
+        
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+        loadVoices();
+        
+        recognition.onstart = function() {
+            outputDiv.innerHTML = "Listening...";
+        };
+        
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript.toLowerCase();
+            outputDiv.innerHTML = "You said: " + transcript;
+            respondToCommand(transcript);
+        };
+        
+        function startListening() {
+            recognition.start();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                let command = textInput.value.toLowerCase();
+                outputDiv.innerHTML = "You typed: " + command;
+                respondToCommand(command);
+                textInput.value = "";
+            }
+        }
+        
+        function respondToCommand(command) {
+            let response = "I didn't understand that.";
+            if (command.includes("hello")) {
+                response = "Hello Boss! How can I assist you?";
+            } else if (command.includes("time")) {
+                response = "The current time is " + new Date().toLocaleTimeString();
+            } else if (command.includes("open google")) {
+                window.open("https://www.google.com", "_blank");
+                response = "Opening Google...";
+            } else if (command.includes("open youtube")) {
+                window.open("https://www.youtube.com", "_blank");
+                response = "Opening YouTube...";
+            } else if (command.includes("open vs code")) {
+                response = "Opening VS Code...";
+                window.open("vscode://", "_blank");
+            } else if (command.includes("open this pc")) {
+                response = "Opening This PC...";
+                window.location.href = "file:///C:/";
+            } else if (command.includes("open whatsapp")) {
+                response = "Opening WhatsApp...";
+                window.open("https://web.whatsapp.com", "_blank");
+            } else if (command.includes("open spotify")) {
+                response = "Opening Spotify...";
+                window.open("https://open.spotify.com", "_blank");
+            } else if (command.includes("open github")) {
+                response = "Opening GitHub...";
+                window.open("https://github.com", "_blank");
+            } else if (command.includes("who are you")) {
+                response = "I am your AI Assistant. You are my creator!";
+            } else if (command.includes("who are you")) {
+                response = "I am your AI Assistant. You are my creator!";
+            } else if (command.includes("who is mr ghost ")) {
+                response = "ujjwal was a my boss!";
+            } else if (command.includes("tell me about your creator")) {
+                response = "My creator is mr ghost , a skilled developer and freelancer, known for his amazing work in web development and AI projects!";
+            } else if (command.includes("about me")) {
+                response = "Hey there! I'm ghost, a passionate coder, web developer, and tech enthusiast. I’m the creator of QuickcodePro, a platform for coding and freelancing. I also run a YouTube gaming channel, As a freelancer on Fiverr (@ujjawalsharma44), I specialize in YouTube content creation, posters, and visiting cards. Currently, I’m working on an AI-powered Virtual Assistant (like Jarvis) as my final-year project. Always eager to learn and innovate, I thrive on building cool projects and helping others with tech solutions. Let’s create something amazing together! ";
+            }
+            speak(response);
+        }
+         
+        function speak(text) {
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "en-US";
+            speech.pitch = 1.2;
+            speech.rate = 1.1;
+            speech.voice = voices.find(voice => voice.name.includes("Female")) || voices[0];
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>

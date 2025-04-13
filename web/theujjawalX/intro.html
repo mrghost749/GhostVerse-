@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booting | TheUjjawalX</title>
+  <link rel="stylesheet" href="intro.css" />
+</head>
+<body>
+  <div class="intro-container">
+    <h1 class="logo">The<span>UjjawalX</span></h1>
+    <p class="tagline" id="typing-text"></p>
+    <div class="loader"></div>
+    <audio id="boot-sound" autoplay>
+      <source src="boot.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    // Typing effect
+    const text = "Ultimate Personal Brand Initializing...";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    window.onload = () => {
+      document.getElementById("boot-sound").play();
+      typeWriter();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 5000);
+    };
+  </script>
+</body>
+</html>

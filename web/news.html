@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News Feed | UjjawalVerse</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #fff;
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+    }
+
+    .header h1 {
+      color: #00bfff;
+    }
+
+    .news-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .news-card {
+      background-color: #222;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    .news-card h3 {
+      font-size: 1.6rem;
+      color: #00bfff;
+    }
+
+    .news-card p {
+      color: #ddd;
+    }
+
+    .news-card a {
+      text-decoration: none;
+      color: #00bfff;
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>News Feed</h1>
+    <p>Stay updated with the latest news in tech, gaming, and anime</p>
+  </header>
+
+  <section class="news-cards">
+    <div class="news-card">
+      <h3>Tech News</h3>
+      <p>Latest breakthrough in AI technology.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="news-card">
+      <h3>Gaming News</h3>
+      <p>Upcoming game releases and updates.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="news-card">
+      <h3>Anime News</h3>
+      <p>New anime series and episodes to watch.</p>
+      <a href="#">Read More</a>
+    </div>
+  </section>
+
+</body>
+</html>

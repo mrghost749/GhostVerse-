@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | TheUjjawalX</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .filters {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .filters button {
+      margin: 0.5rem;
+      padding: 10px 16px;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filters button:hover {
+      background-color: #3b82f6;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .project {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.03);
+    }
+
+    .project h3 {
+      color: #facc15;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 2px 8px;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+<body>
+    
+</body>
+  <h1>🚀 My Projects</h1>
+
+  <div class="filters">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('html')">HTML</button>
+    <button onclick="filterProjects('js')">JavaScript</button>
+    <button onclick="filterProjects('yt')">YouTube</button>
+  </div>
+
+  <div class="projects" id="projectList">
+    <div class="project" data-tag="html">
+      <h3>QuickCodePro</h3>
+      <p>Freelancing & mini project code hub.</p>
+      <span class="tag">HTML</span>
+      <li><a href="quickcodepro.txt">code</a></li>
+    </div>
+
+    <div class="project" data-tag="js">
+      <h3>Typing Speed Test</h3>
+      <p>JS-powered typing challenge app.</p>
+      <span class="tag">JavaScript</span>
+      <li><a href="About Me.html">About Me</a></li>
+    </div>
+
+    <div class="project" data-tag="yt">
+      <h3>TheUjjawalX YouTube Live</h3>
+      <p>Embedded YouTube gaming live stream.</p>
+      <span class="tag">YouTube</span>
+      <li><a href="About Me.html">About Me</a></li>
+    </div>
+
+    <div class="project" data-tag="html">
+      <h3>Portfolio - Animesan</h3>
+      <p>Anime-themed personal portfolio site.</p>
+      <span class="tag">HTML</span>
+      <li><a href="About Me.html">About Me</a></li>
+    </div>
+
+    <div class="project" data-tag="html">
+      <h3>Portfolio - Animesan</h3>
+      <p>Anime-themed personal portfolio site.</p>
+      <span class="tag">HTML</span>
+      <li><a href="About Me.html">About Me</a></li>
+    </div>
+
+    <div class="project" data-tag="js">
+      <h3>VEER AI Assistant</h3>
+      <p>Final year smart assistant using JS + AI APIs.</p>
+      <span class="tag">JavaScript</span>
+      <li><a href="my AI/index.html">My AI</a></li>
+      <li><a href="AI.txt">code</a></li>
+    </div>
+  </div>
+
+  <script>
+    function filterProjects(category) {
+      const projects = document.querySelectorAll('.project');
+      projects.forEach(project => {
+        const tag = project.getAttribute('data-tag');
+        if (category === 'all' || tag === category) {
+          project.style.display = 'block';
+        } else {
+          project.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
